@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bách Hóa Xanh - Tài Xế</title>
+    <link rel="icon" type="image/png" href="./images.png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
+    <link rel="stylesheet" href="driver_style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="./logo.png" alt="Bách Hóa Xanh Logo">
+        </div>
+        <div class="search-container">
+            <input type="text" id="storeSearch" class="search-bar" placeholder="Tìm cửa hàng...">
+            <i class="fas fa-chevron-down search-arrow" id="searchArrow"></i>
+            <div class="search-suggestions" id="searchSuggestions"></div>
+        </div>
+        <div class="nav-links">
+            <button id="routeButton" class="nav-button"><i class="fas fa-route"></i> Routing</button>
+            <div class="driver-indicator" title="Bạn đang ở trang dành cho Tài xế">
+                <i class="fas fa-truck"></i> Tài xế
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar" id="routeSidebar">
+        <div class="mt-4">
+            <button id="loadDataButton" class="mt-2 w-full bg-orange-500 text-white p-2 rounded hover:bg-orange-600">
+                Lấy dữ liệu từ Server
+            </button>
+            <div id="successMessage" class="success-message" style="display: none"></div>
+            <div id="loadingMessage" class="success-message" style="display: none">
+                Đang xử lý dữ liệu...
+            </div>
+            <hr class="my-4" />
+            <label class="block text-lg font-bold text-green-700">Chọn mã số xe</label>
+            <select id="vehicleCode" class="select-input">
+                <option value="">Chọn mã xe</option>
+            </select>
+            <button id="loadRoute" class="mt-2 w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                Xem tuyến đường
+            </button>
+            <div id="errorMessage" class="error-message" style="display: none">
+                Không tìm thấy tuyến đường!
+            </div>
+            <div id="routeInfo" class="info-box" style="display: none"></div>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <footer class="footer">
+        <p>© 2025 Bách Hóa Xanh. All Rights Reserved.</p>
+        <p>
+            <a href="https://www.bachhoaxanh.com/?srsltid=AfmBOorReHLifzL_5vYaNlYhfMSZMKcZCakmhOmLTMl4tajXkv4ltETI">Trang Chủ</a> |
+            <a href="https://www.facebook.com/sieuthibachhoaxanh/?locale=vi_VN">Fanpage</a> |
+            <a href="https://www.youtube.com/watch?v=EJanZHX1mb0">YouTube</a>
+        </p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="driver_jav.js"></script>
+</body>
+</html>
